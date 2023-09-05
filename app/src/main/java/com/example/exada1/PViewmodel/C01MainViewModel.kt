@@ -4,5 +4,5 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class C01MainViewModel:ViewModel(){
-    val Bchecknewdata = MutableLiveData<Boolean>(true)
+    val cChecknewdata = MutableLiveData<Boolean>(true)
 }
