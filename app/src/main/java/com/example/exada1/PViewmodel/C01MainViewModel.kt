@@ -1,10 +1,9 @@
 package com.example.exada1.PViewmodel
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.exada1.PDataPackage.PDistrictPackage.CDistrictData
+import com.example.exada1.PDataPackage.PDistrictPackage.cmlDistrictData
 
 import com.example.exada1.PRepository.CRepository
 import kotlinx.coroutines.Dispatchers
@@ -18,6 +17,6 @@ class C01MainViewModel(private val oRepositoy: CRepository):ViewModel(){
             oRepositoy.C_APIxCompany()
         }
     }
-    val oData : LiveData<CDistrictData>
+    val oData : LiveData<cmlDistrictData>
         get() = oRepositoy.oDistrictData
 }

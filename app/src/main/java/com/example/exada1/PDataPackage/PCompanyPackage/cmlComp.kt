@@ -3,7 +3,7 @@ package com.example.exada1.PDataPackage.PCompanyPackage
 
 import com.google.gson.annotations.SerializedName
 
-data class RaComp(
+data class cmlComp(
     @SerializedName("rdCreateOn")
     val rdCreateOn: String,
     @SerializedName("rdLastUpdOn")

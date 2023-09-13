@@ -3,7 +3,7 @@ package com.example.exada1.PDataPackage.PCompanyPackage
 
 import com.google.gson.annotations.SerializedName
 
-data class RaCompLng(
+data class cmlCompLng(
     @SerializedName("rnLngID")
     val rnLngID: Int,
     @SerializedName("rtCmpCode")

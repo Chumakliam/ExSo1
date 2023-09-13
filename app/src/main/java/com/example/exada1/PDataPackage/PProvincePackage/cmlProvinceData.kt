@@ -1,11 +1,11 @@
-package com.example.exada1.PDataPackage.PDistrictPackage
+package com.example.exada1.PDataPackage.PProvincePackage
 
 
 import com.google.gson.annotations.SerializedName
 
-data class CDistrictData(
+data class cmlProvinceData(
     @SerializedName("roItem")
-    val roItem: RoItem,
+    val roItem: cmlRoItem,
     @SerializedName("rtCode")
     val rtCode: String,
     @SerializedName("rtDesc")

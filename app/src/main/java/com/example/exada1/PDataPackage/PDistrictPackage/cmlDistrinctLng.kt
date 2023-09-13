@@ -3,7 +3,7 @@ package com.example.exada1.PDataPackage.PDistrictPackage
 
 import com.google.gson.annotations.SerializedName
 
-data class RaDistrinctLng(
+data class cmlDistrinctLng(
     @SerializedName("rnLngID")
     val rnLngID: Int,
     @SerializedName("rtDstCode")

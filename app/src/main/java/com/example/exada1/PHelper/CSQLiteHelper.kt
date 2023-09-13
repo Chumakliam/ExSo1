@@ -5,11 +5,11 @@ import android.database.Cursor
 import android.database.SQLException
 import android.database.sqlite.*
 import android.util.Log
-import com.example.exada1.PDataPackage.CDataList
+import com.example.exada1.PDataPackage.cmlDataList
 
-import com.example.exada1.PDataPackage.PCompanyPackage.CCompanyData
-import com.example.exada1.PDataPackage.PDistrictPackage.CDistrictData
-import com.example.exada1.PDataPackage.PProvincePackage.CProvinceData
+import com.example.exada1.PDataPackage.PCompanyPackage.cmlCompanyData
+import com.example.exada1.PDataPackage.PDistrictPackage.cmlDistrictData
+import com.example.exada1.PDataPackage.PProvincePackage.cmlProvinceData
 import java.io.File
 import java.io.FileOutputStream
 import com.google.gson.Gson
@@ -82,9 +82,9 @@ class CSQLiteHelper(private var context : Context){
 
 
 
-     fun C_GEToData() : List<CDataList> {
-        val aoValues = mutableListOf<CDataList>()
-        val gson = Gson()
+     fun C_GEToData() : List<cmlDataList> {
+        val aoValues = mutableListOf<cmlDataList>()
+        val oGson = Gson()
         var tSqlQuery = "SELECT FTSynName,FDSynLast " +
                     "FROM  TSysSyncData_L a " +
                     "INNER JOIN  TSysSyncData b " +
@@ -95,7 +95,7 @@ class CSQLiteHelper(private var context : Context){
         if (oCursor != null) {
             while (oCursor.moveToNext()) {
                 val oJson = C_SETtCursorToJson(oCursor)
-                val oValue: CDataList = gson.fromJson(oJson, CDataList::class.java)
+                val oValue: cmlDataList = oGson.fromJson(oJson, cmlDataList::class.java)
                 aoValues.add(oValue)
             }
             oCursor.close()
@@ -103,7 +103,7 @@ class CSQLiteHelper(private var context : Context){
         return aoValues
     }
 
-    fun C_SETxInsertDd(oItem: CCompanyData) {
+    fun C_SETxInsertDd(oItem: cmlCompanyData) {
         val oDatabase = context.openOrCreateDatabase(tDB_NAME, Context.MODE_PRIVATE, null)
         oDatabase.execSQL("DELETE FROM TCNMComp")
         oDatabase.execSQL("DELETE FROM TCNMComp_L")
@@ -143,7 +143,7 @@ class CSQLiteHelper(private var context : Context){
 
     }
 
-    fun C_SETxInsertProvince(oItem: CProvinceData){
+    fun C_SETxInsertProvince(oItem: cmlProvinceData){
         val oDatabase = context.openOrCreateDatabase(tDB_NAME, Context.MODE_PRIVATE, null)
         oDatabase.execSQL("DELETE FROM TCNMProvince")
         oDatabase.execSQL("DELETE FROM TCNMProvince_L")
@@ -175,7 +175,7 @@ class CSQLiteHelper(private var context : Context){
 
     }
 
-    fun C_SETxinsertDistrict(oItem: CDistrictData){
+    fun C_SETxinsertDistrict(oItem: cmlDistrictData){
         val oDatabase = context.openOrCreateDatabase(tDB_NAME, Context.MODE_PRIVATE, null)
         oDatabase.execSQL("DELETE FROM TCNMDistrict ")
         oDatabase.execSQL("DELETE FROM TCNMDistrict_L")

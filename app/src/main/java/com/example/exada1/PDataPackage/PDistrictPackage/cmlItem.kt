@@ -3,9 +3,9 @@ package com.example.exada1.PDataPackage.PDistrictPackage
 
 import com.google.gson.annotations.SerializedName
 
-data class RoItem(
+data class cmlItem(
     @SerializedName("raDistrinct")
-    val raDistrinct: List<RaDistrinct>,
+    val raDistrinct: List<cmlDistrinct>,
     @SerializedName("raDistrinctLng")
-    val raDistrinctLng: List<RaDistrinctLng>
+    val raDistrinctLng: List<cmlDistrinctLng>
 )

@@ -5,11 +5,11 @@ import com.google.gson.annotations.SerializedName
 
 data class RoItem(
     @SerializedName("raComp")
-    val raComp: List<RaComp>,
+    val raComp: List<cmlComp>,
     @SerializedName("raCompLng")
-    val raCompLng: List<RaCompLng>,
+    val raCompLng: List<cmlCompLng>,
     @SerializedName("raImage")
-    val raImage: List<RaImage>,
+    val raImage: List<cmlImage>,
     @SerializedName("raUrlObject")
     val raUrlObject: Any
 )

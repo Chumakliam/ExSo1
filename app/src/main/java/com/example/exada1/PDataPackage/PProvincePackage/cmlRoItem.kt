@@ -3,9 +3,9 @@ package com.example.exada1.PDataPackage.PProvincePackage
 
 import com.google.gson.annotations.SerializedName
 
-data class RoItem(
+data class cmlRoItem(
     @SerializedName("raPvn")
-    val raPvn: List<RaPvn>,
+    val raPvn: List<cmlPvn>,
     @SerializedName("raPvnLng")
-    val raPvnLng: List<RaPvnLng>
+    val raPvnLng: List<cmlPvnLng>
 )

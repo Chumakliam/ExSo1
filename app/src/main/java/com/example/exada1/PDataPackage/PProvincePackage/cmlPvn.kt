@@ -3,7 +3,7 @@ package com.example.exada1.PDataPackage.PProvincePackage
 
 import com.google.gson.annotations.SerializedName
 
-data class RaPvn(
+data class cmlPvn(
     @SerializedName("rdCreateOn")
     val rdCreateOn: String,
     @SerializedName("rdLastUpdOn")

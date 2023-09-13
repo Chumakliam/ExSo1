@@ -4,10 +4,9 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.exada1.PApi.IApiService
-import com.example.exada1.PApi.OApiUtilities
-import com.example.exada1.PDataPackage.PCompanyPackage.CCompanyData
-import com.example.exada1.PDataPackage.PDistrictPackage.CDistrictData
-import com.example.exada1.PDataPackage.PProvincePackage.CProvinceData
+import com.example.exada1.PDataPackage.PCompanyPackage.cmlCompanyData
+import com.example.exada1.PDataPackage.PDistrictPackage.cmlDistrictData
+import com.example.exada1.PDataPackage.PProvincePackage.cmlProvinceData
 import com.example.exada1.PHelper.CSQLiteHelper
 import retrofit2.Call
 import retrofit2.Response
@@ -15,14 +14,14 @@ import retrofit2.Response
 
 class CRepository(private val oAppInterface:IApiService,private val oDb:CSQLiteHelper) {
 
-    private val oLiveDistrictData = MutableLiveData<CDistrictData>()
-    val oDistrictData : LiveData<CDistrictData>
+    private val oLiveDistrictData = MutableLiveData<cmlDistrictData>()
+    val oDistrictData : LiveData<cmlDistrictData>
         get() = oLiveDistrictData
 
     fun C_APIxDistrict() {
         val oCall = oAppInterface.C_GEToDistrict()
-        oCall.enqueue(object : retrofit2.Callback<CDistrictData>{
-            override fun onResponse(call: Call<CDistrictData>, response: Response<CDistrictData>) {
+        oCall.enqueue(object : retrofit2.Callback<cmlDistrictData>{
+            override fun onResponse(call: Call<cmlDistrictData>, response: Response<cmlDistrictData>) {
                 if (response.isSuccessful) {
                     val oResponse = response.body()
                     oLiveDistrictData.postValue(response.body())
@@ -32,7 +31,7 @@ class CRepository(private val oAppInterface:IApiService,private val oDb:CSQLiteH
                     }
                 }
             }
-            override fun onFailure(call: Call<CDistrictData>, t: Throwable) {
+            override fun onFailure(call: Call<cmlDistrictData>, t: Throwable) {
                 TODO("Not yet implemented")
             }
         })
@@ -40,8 +39,8 @@ class CRepository(private val oAppInterface:IApiService,private val oDb:CSQLiteH
 
      fun C_APIxProvince() {
         val oCall = oAppInterface.C_GEToProvince()
-        oCall.enqueue(object : retrofit2.Callback<CProvinceData>{
-            override fun onResponse(call: Call<CProvinceData>, response: Response<CProvinceData>) {
+        oCall.enqueue(object : retrofit2.Callback<cmlProvinceData>{
+            override fun onResponse(call: Call<cmlProvinceData>, response: Response<cmlProvinceData>) {
                 if (response.isSuccessful) {
                     val oResponse = response.body()
                     Log.d("C_API", "onResponse: "+oResponse.toString())
@@ -50,7 +49,7 @@ class CRepository(private val oAppInterface:IApiService,private val oDb:CSQLiteH
                     }
                 }
             }
-            override fun onFailure(call: Call<CProvinceData>, t: Throwable) {
+            override fun onFailure(call: Call<cmlProvinceData>, t: Throwable) {
                 TODO("Not yet implemented")
             }
         })
@@ -58,8 +57,8 @@ class CRepository(private val oAppInterface:IApiService,private val oDb:CSQLiteH
 
      fun C_APIxCompany() {
         val oCall = oAppInterface.C_GEToPdDate()
-        oCall.enqueue(object : retrofit2.Callback<CCompanyData>{
-            override fun onResponse(call: Call<CCompanyData>, response: Response<CCompanyData>) {
+        oCall.enqueue(object : retrofit2.Callback<cmlCompanyData>{
+            override fun onResponse(call: Call<cmlCompanyData>, response: Response<cmlCompanyData>) {
                 if (response.isSuccessful) {
                     val oResponse = response.body()
                     Log.d("C_API", "onResponse: "+oResponse.toString())
@@ -68,7 +67,7 @@ class CRepository(private val oAppInterface:IApiService,private val oDb:CSQLiteH
                     }
                 }
             }
-            override fun onFailure(call: Call<CCompanyData>, t: Throwable) {
+            override fun onFailure(call: Call<cmlCompanyData>, t: Throwable) {
                 TODO("Not yet implemented")
             }
         })

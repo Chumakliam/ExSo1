@@ -6,35 +6,35 @@ import android.view.ViewGroup
 import android.widget.CheckBox
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.exada1.PDataPackage.CDataList
+import com.example.exada1.PDataPackage.cmlDataList
 import com.example.exada1.R
 
-class C01MainAdapter(private val oList: MutableList<CDataList>):
+class C01MainAdapter(private val oList: MutableList<cmlDataList>):
     RecyclerView.Adapter<C01MainAdapter.CViewHolder>() {
-      var isSelectedAll: Boolean = false
+      var bSelectedAll: Boolean = false
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): C01MainAdapter.CViewHolder {
-        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.w01data_view,parent,false)
-        return CViewHolder(itemView)
+        val oItemView = LayoutInflater.from(parent.context).inflate(R.layout.w01data_view,parent,false)
+        return CViewHolder(oItemView)
     }
 
     override fun onBindViewHolder(holder: C01MainAdapter.CViewHolder, position: Int) {
-        val currentItem = oList[position]
-        holder.bCheckBox.setText(currentItem.tTitle)
-        holder.tDate.setText(currentItem.tDate)
-        if (!isSelectedAll){
+        val aoCurrentItem = oList[position]
+        holder.bCheckBox.setText(aoCurrentItem.tTitle)
+        holder.tDate.setText(aoCurrentItem.tDate)
+        if (!bSelectedAll){
             holder.bCheckBox.setChecked(false)
         }
         else  holder.bCheckBox.setChecked(true)
     }
-    fun selectAll() {
-        isSelectedAll = true
-        notifyDataSetChanged()
-    }
-
-    fun unselectall() {
-        isSelectedAll = false
-        notifyDataSetChanged()
-    }
+//    fun selectAll() {
+//        bSelectedAll = true
+//        notifyDataSetChanged()
+//    }
+//
+//    fun unselectall() {
+//        bSelectedAll = false
+//        notifyDataSgetItemCountetChanged()
+//    }
 
     override fun getItemCount(): Int {
         return oList.size
