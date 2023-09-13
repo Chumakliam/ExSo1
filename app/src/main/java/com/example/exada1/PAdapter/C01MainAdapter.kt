@@ -6,10 +6,10 @@ import android.view.ViewGroup
 import android.widget.CheckBox
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.exada1.PDataPackage.CData
+import com.example.exada1.PDataPackage.CDataList
 import com.example.exada1.R
 
-class C01MainAdapter(private val oList: ArrayList<CData>):
+class C01MainAdapter(private val oList: MutableList<CDataList>):
     RecyclerView.Adapter<C01MainAdapter.CViewHolder>() {
       var isSelectedAll: Boolean = false
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): C01MainAdapter.CViewHolder {
