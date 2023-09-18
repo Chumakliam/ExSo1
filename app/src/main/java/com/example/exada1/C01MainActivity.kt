@@ -26,17 +26,10 @@ import java.util.Calendar
 
 class C01MainActivity : AppCompatActivity() {
     private lateinit var oC_MainViewModel: C01MainViewModel
-    private lateinit var bCheckNewData: CheckBox
-    private lateinit var ollLayoutSubData: LinearLayout
-    private lateinit var tShowDate: EditText
-    private lateinit var bCalenderButton: ImageButton
+    private lateinit var oC_ShowDate: EditText
     private lateinit var oC_DataView: RecyclerView
-    private var aoListData = mutableListOf<cmlDataList>()
-    private lateinit var bDownloadButton: Button
-    private lateinit var tSearch: EditText
-    private lateinit var bSearchButton: ImageButton
     private var oC_Db:CSQLiteHelper?=null
-    private lateinit var bCheckSelectAll : CheckBox
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -57,6 +50,7 @@ class C01MainActivity : AppCompatActivity() {
     }
 
     private fun C_SETxData(){
+         var aoListData = mutableListOf<cmlDataList>()
         aoListData = oC_Db?.C_GEToData() as MutableList<cmlDataList>
         oC_DataView.adapter=C01MainAdapter(aoListData)
 
@@ -64,15 +58,22 @@ class C01MainActivity : AppCompatActivity() {
     private fun C_SETxLavle(poCalendar: Calendar){
         val tMyFormat="yyyy-MM-dd"
         val oSdf = SimpleDateFormat(tMyFormat)
-        tShowDate.setText(oSdf.format(poCalendar.time))
+        oC_ShowDate.setText(oSdf.format(poCalendar.time))
     }
 
 
     private fun C_SETxInitView(){
+          var bCheckNewData: CheckBox
+          var ollLayoutSubData: LinearLayout
+          var bCalenderButton: ImageButton
+          var bDownloadButton: Button
+          var tSearch: EditText
+          var bSearchButton: ImageButton
+          var bCheckSelectAll : CheckBox
         setContentView(R.layout.w01activity_main)
         bCheckNewData = findViewById(R.id.ocbCheckNewData)
         ollLayoutSubData = findViewById(R.id.ollLayoutSubData)
-        tShowDate = findViewById(R.id.oetShowDate)
+        oC_ShowDate = findViewById(R.id.oetShowDate)
         bCalenderButton = findViewById(R.id.ocmCalenderButton)
         oC_DataView=findViewById(R.id.orvDataView)
         oC_DataView.layoutManager=LinearLayoutManager(this)
